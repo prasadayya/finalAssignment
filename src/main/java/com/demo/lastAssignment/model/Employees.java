@@ -3,20 +3,33 @@ package com.demo.lastAssignment.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "empdata")
-public class userModel {
+public class Employees {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "empname")
     private String name;
     private String email;
     private String phone;
+    private String position;
     private String password;
+
+    public Employees() {
+    }
+
+    public String getPosition() {
+        return position;
+    }
+    public void setPosition(String position) {
+        this.position = position;
+    }
+    
     public int getId() {
         return id;
     }
@@ -49,10 +62,10 @@ public class userModel {
     }
     @Override
     public String toString() {
-        return "userModel [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", password="
-                + password + "]";
+        return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", position="
+                + position + ", password=" + password + "]";
     }
-
+    
 
 
     
